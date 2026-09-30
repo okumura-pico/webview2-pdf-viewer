@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- app.ico の元画像。scripts/make-icon.sh で app.ico を再生成する -->
+  <path d="M52 12 H168 L220 64 V236 a8 8 0 0 1 -8 8 H52 a8 8 0 0 1 -8 -8 V20 a8 8 0 0 1 8 -8 Z"
+        fill="#ffffff" stroke="#8a939e" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M168 12 V56 a8 8 0 0 0 8 8 H220 Z"
+        fill="#dfe3e8" stroke="#8a939e" stroke-width="8" stroke-linejoin="round"/>
+  <rect x="76" y="84" width="92" height="12" rx="6" fill="#c5cbd3"/>
+  <rect x="76" y="112" width="112" height="12" rx="6" fill="#c5cbd3"/>
+  <rect x="16" y="144" width="224" height="72" rx="12" fill="#d93025"/>
+  <text x="128" y="202" text-anchor="middle" fill="#ffffff"
+        font-family="DejaVu Sans, Arial, sans-serif" font-weight="bold" font-size="60">PDF</text>
+</svg>
