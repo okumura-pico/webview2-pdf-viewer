@@ -20,10 +20,9 @@ public partial class MainWindow : Window
     {
         try
         {
-            // 既定の保存先は exe と同じフォルダーのため、書き込み可能な場所を指定する
-            var userDataFolder = Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                "PdfViewer", "WebView2");
+            // 既定の保存先は exe と同じフォルダーのため、書き込み可能な場所を指定する。
+            // 保持したいデータはないので、消えても再作成される一時フォルダーに置く
+            var userDataFolder = Path.Combine(Path.GetTempPath(), "PdfViewerWV", "WebView2");
             var environment = await CoreWebView2Environment.CreateAsync(null, userDataFolder);
             await WebView.EnsureCoreWebView2Async(environment);
         }
