@@ -1,0 +1,36 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-dotnet@v5
+        with:
+          global-json-file: global.json
+
+      - name: Publish
+        shell: pwsh
+        run: |
+          $version = $env:GITHUB_REF_NAME.TrimStart('v')
+          dotnet publish src/PdfViewer/PdfViewer.csproj -p:PublishProfile=win-x64 -p:Version=$version
+
+      - name: Create release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $exe = "PdfViewer-$env:GITHUB_REF_NAME-win-x64.exe"
+          Copy-Item src/PdfViewer/bin/publish/win-x64/PdfViewer.exe $exe
+          $options = @('--generate-notes')
+          if ($env:GITHUB_REF_NAME.Contains('-')) { $options += '--prerelease' }
+          gh release create $env:GITHUB_REF_NAME $exe --title $env:GITHUB_REF_NAME @options
