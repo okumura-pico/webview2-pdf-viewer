@@ -29,8 +29,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          $exe = "PdfViewer-$env:GITHUB_REF_NAME-win-x64.exe"
-          Copy-Item src/PdfViewer/bin/publish/win-x64/PdfViewer.exe $exe
+          $exe = "PdfViewerWV-$env:GITHUB_REF_NAME-win-x64.exe"
+          Copy-Item src/PdfViewer/bin/publish/win-x64/PdfViewerWV.exe $exe
           $options = @('--generate-notes')
           if ($env:GITHUB_REF_NAME.Contains('-')) { $options += '--prerelease' }
           gh release create $env:GITHUB_REF_NAME $exe --title $env:GITHUB_REF_NAME @options

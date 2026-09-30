@@ -9,5 +9,5 @@ PDFファイルダブルクリックで使用することを想定していま�
 dotnet publish src/PdfViewer/PdfViewer.csproj -p:PublishProfile=win-x64
 ```
 
-`src/PdfViewer/bin/publish/win-x64/PdfViewer.exe` が単一の exe として出力されます。
+`src/PdfViewer/bin/publish/win-x64/PdfViewerWV.exe` が単一の exe として出力されます。
 .NET ランタイムは同梱されるため、配布先へのインストールは不要です（WebView2 ランタイムは必要です）。
